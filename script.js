@@ -15,18 +15,12 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let response = prompt("Enter a choice (rock, paper, or scissors): ");
-    console.log(response);
+    return response;
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    if (humanChoice == computerChoice) {
+    console.log("Human: %s, Computer: %s",humanChoice, computerChoice);
+    if (humanChoice === computerChoice) {
         return "Tie!";
     }
     if (humanChoice == "rock") {
@@ -60,3 +54,24 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame() {
+
+    let numGames = 5;
+    while (numGames > 0) {
+
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+
+    console.log(playRound(humanChoice, computerChoice));
+    numGames--;
+
+    }
+
+    console.log("The score is: Human %d, Computer %d", humanScore, computerScore);
+}
+
+playGame();
